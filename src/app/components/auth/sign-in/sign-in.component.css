@@ -32,3 +32,11 @@ width: 100%;
 .back-button{
     float: right;
 }
+
+.spinner {
+    text-align: center;
+    padding-left: 47%;
+    padding-right: 42%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

@@ -40,7 +40,8 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>House Number *</mat-label>
                     <input matInput type="text" formControlName="houseNumber" placeholder="Your house Number">
-                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required</mat-error>
+                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required
+                    </mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -56,7 +57,7 @@
             <div class="col-6">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Postal Code *</mat-label>
-                    <input matInput type="text" formControlName="postalCode" placeholder="Your Postal Code">
+                    <input matInput type="number" formControlName="postalCode" placeholder="Your Postal Code">
                     <mat-icon matSuffix>location_on</mat-icon>
                     <mat-error *ngIf="(form.get('postalCode')).errors?.required">postalCode is required</mat-error>
                 </mat-form-field>
@@ -76,7 +77,8 @@
             <div class="col-6">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Password *</mat-label>
-                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
+                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password"
+                        formControlName="password">
                     <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
                     <mat-error>Password is required</mat-error>
                     <mat-error *ngIf="(form.get('password')).errors?.minlength">
@@ -85,16 +87,24 @@
                 </mat-form-field>
             </div>
         </div>
+        <div class="row spinner">
+            <mat-progress-spinner                
+                *ngIf="loading"
+                color="primary"
+                mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
         <div class="row">
             <div class="col-6">
                 <button mat-raised-button color="warn" class="back-button">Back</button>
             </div>
             <div class="col-6">
-                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Signin</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Signup</button>
             </div>
         </div>
         <div class="row">
-            <p class="text-signup">Do you already have your Account ? <a mat-button routerLink="../signin" target="_blank">Signin</a></p>
+            <p class="text-signup">Do you already have your Account ? <a mat-button routerLink="../signin"
+                    target="_blank">Signin</a></p>
         </div>
     </form>
 </div>
