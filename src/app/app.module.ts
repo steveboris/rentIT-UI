@@ -7,7 +7,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { MatIconModule } from '@angular/material/icon'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -20,10 +19,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
+import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
