@@ -1,0 +1,49 @@
+.account-icon {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.mat-icon-accoun {
+    font-size: 100px;
+    margin-left: -80px;
+    color: #0B4B76;
+}
+
+.example-full-width {
+width: 100%;
+}
+
+.text-create-account {
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.text-signup {
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 15px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.back-button{
+    float: right;
+}
+
+.spinner {
+    text-align: center;
+    padding-left: 47%;
+    padding-right: 42%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card {
+    width: 50rem;
+    height: 40rem;
+    margin-top: 10em;
+    padding-top: -20em;
+}
