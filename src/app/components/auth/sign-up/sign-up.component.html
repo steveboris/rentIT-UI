@@ -40,8 +40,7 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>House Number *</mat-label>
                     <input matInput type="text" formControlName="houseNumber" placeholder="Your house Number">
-                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required
-                    </mat-error>
+                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required</mat-error>
                 </mat-form-field>
             </div>
         </div>
@@ -77,8 +76,7 @@
             <div class="col-6">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Password *</mat-label>
-                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password"
-                        formControlName="password">
+                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
                     <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
                     <mat-error>Password is required</mat-error>
                     <mat-error *ngIf="(form.get('password')).errors?.minlength">
