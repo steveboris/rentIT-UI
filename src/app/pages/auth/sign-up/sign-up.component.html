@@ -1,108 +1,118 @@
 <div class="container">
     <div class="row">
-        <div class="col-4">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="card">
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-4 account-icon">
+                        <mat-icon class="mat-icon-accoun">account_circle</mat-icon>
+                    </div>
+                    <div class="col-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="text-create-account">Create your Account</p>
+                </div>
+                <div class="card-body">
+                    <form class="example-form" [formGroup]="form" (ngSubmit)="saveDetails(form)">
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>First name *</mat-label>
+                                    <input matInput type="text" formControlName="firstName" placeholder="Your first name">
+                                    <mat-error *ngIf="(form.get('firstName')).errors?.required">the first name is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Last name *</mat-label>
+                                    <input matInput type="text" formControlName="lastName" placeholder="Your last name">
+                                    <mat-error *ngIf="(form.get('lastName')).errors?.required">the last name is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Street *</mat-label>
+                                    <input matInput type="text" formControlName="street" placeholder="Your street">
+                                    <mat-error *ngIf="(form.get('street')).errors?.required">the street is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>House Number *</mat-label>
+                                    <input matInput type="text" formControlName="houseNumber" placeholder="Your house Number">
+                                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>City *</mat-label>
+                                    <input matInput type="text" formControlName="city" placeholder="Your City">
+                                    <mat-icon matSuffix>location_city</mat-icon>
+                                    <mat-error *ngIf="(form.get('city')).errors?.required">city is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Postal Code *</mat-label>
+                                    <input matInput type="number" formControlName="postalCode" placeholder="Your Postal Code">
+                                    <mat-icon matSuffix>location_on</mat-icon>
+                                    <mat-error *ngIf="(form.get('postalCode')).errors?.required">postalCode is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Email Address *</mat-label>
+                                    <input matInput type="email" formControlName="email" placeholder="Your email">
+                                    <mat-icon matSuffix>mail_outline</mat-icon>
+                                    <mat-hint>Input the fully qualified email address</mat-hint>
+                                    <mat-error *ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
+                                    <mat-error *ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Password *</mat-label>
+                                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
+                                    <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
+                                    <mat-error>Password is required</mat-error>
+                                    <mat-error *ngIf="(form.get('password')).errors?.minlength">
+                                        Please enter more than 6 character
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row spinner">
+                            <mat-progress-spinner                
+                                *ngIf="loading"
+                                color="primary"
+                                mode="indeterminate">
+                            </mat-progress-spinner>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button mat-raised-button color="warn" class="back-button">Back</button>
+                            </div>
+                            <div class="col-6">
+                                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Signup</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p class="text-signup">Do you already have your Account ? <a mat-button routerLink="../signin"
+                                    >Signin</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="col-4 account-icon">
-            <mat-icon class="mat-icon-accoun">account_circle</mat-icon>
-        </div>
-        <div class="col-4">
-        </div>
+        <div class="col-2"></div>
     </div>
-    <div class="row">
-        <p class="text-create-account">Create your Account</p>
-    </div>
-    <form class="example-form" [formGroup]="form" (ngSubmit)="saveDetails(form)">
-        <div class="row">
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>First name *</mat-label>
-                    <input matInput type="text" formControlName="firstName" placeholder="Your first name">
-                    <mat-error *ngIf="(form.get('firstName')).errors?.required">the first name is required</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Last name *</mat-label>
-                    <input matInput type="text" formControlName="lastName" placeholder="Your last name">
-                    <mat-error *ngIf="(form.get('lastName')).errors?.required">the last name is required</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Street *</mat-label>
-                    <input matInput type="text" formControlName="street" placeholder="Your street">
-                    <mat-error *ngIf="(form.get('street')).errors?.required">the street is required</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>House Number *</mat-label>
-                    <input matInput type="text" formControlName="houseNumber" placeholder="Your house Number">
-                    <mat-error *ngIf="(form.get('houseNumber')).errors?.required">the house Number is required</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>City *</mat-label>
-                    <input matInput type="text" formControlName="city" placeholder="Your City">
-                    <mat-icon matSuffix>location_city</mat-icon>
-                    <mat-error *ngIf="(form.get('city')).errors?.required">city is required</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Postal Code *</mat-label>
-                    <input matInput type="number" formControlName="postalCode" placeholder="Your Postal Code">
-                    <mat-icon matSuffix>location_on</mat-icon>
-                    <mat-error *ngIf="(form.get('postalCode')).errors?.required">postalCode is required</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Email Address *</mat-label>
-                    <input matInput type="email" formControlName="email" placeholder="Your email">
-                    <mat-icon matSuffix>mail_outline</mat-icon>
-                    <mat-hint>Input the fully qualified email address</mat-hint>
-                    <mat-error *ngIf="(form.get('email')).errors?.required">Email is required</mat-error>
-                    <mat-error *ngIf="(form.get('email')).errors?.pattern">Please enter valid email</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="col-6">
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Password *</mat-label>
-                    <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
-                    <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
-                    <mat-error>Password is required</mat-error>
-                    <mat-error *ngIf="(form.get('password')).errors?.minlength">
-                        Please enter more than 6 character
-                    </mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="row spinner">
-            <mat-progress-spinner                
-                *ngIf="loading"
-                color="primary"
-                mode="indeterminate">
-            </mat-progress-spinner>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <button mat-raised-button color="warn" class="back-button">Back</button>
-            </div>
-            <div class="col-6">
-                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Signup</button>
-            </div>
-        </div>
-        <div class="row">
-            <p class="text-signup">Do you already have your Account ? <a mat-button routerLink="../signin"
-                    target="_blank">Signin</a></p>
-        </div>
-    </form>
 </div>

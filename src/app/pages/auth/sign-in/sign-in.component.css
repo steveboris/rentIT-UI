@@ -40,3 +40,10 @@ width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.card {
+    width: 50rem;
+    height: 40rem;
+    margin-top: 10em;
+    padding-top: -20em;
+}
