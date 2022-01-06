@@ -1,0 +1,27 @@
+.box-categories {
+    width: 20rem;
+    margin-top: 60px;
+    text-decoration: none;
+}
+
+.box-articles {
+    text-decoration: none;
+    
+}
+
+.box-articles .card-text {
+    color: black;
+}
+
+.box-categories img {
+    width: 20rem;
+    height: 13rem;
+}
+
+.arrow_forward {
+    margin-top: 8px !important;
+}
+
+.see-all a {
+    text-decoration: none;
+}

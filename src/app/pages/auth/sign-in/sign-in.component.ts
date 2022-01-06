@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SigninRequest } from 'src/app/models/SigninRequest';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -56,7 +56,7 @@ export class SignInComponent implements OnInit {
       localStorage.setItem("lastname", response.lastname);
       localStorage.setItem("firstname", response.firstname);
 
-      this.router.navigate(["/signin"]);
+      this.router.navigate(["/dashboard", response.id]);
     }, error => {
       this.toastr.error(error.error.message, "Error");
     });
