@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { ArticleQuantity } from 'src/app/models/ArticleQuantity';
 import { Invoice } from 'src/app/models/Invoice';
 import { Rental } from 'src/app/models/Rental';
@@ -25,7 +26,8 @@ export class RentalDetailsComponent implements OnInit {
     private rentalService: RentalService,
     private invoiceService: InvoiceService,
     private articleQuantityService: ArticleQuantityService,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,22 @@ export class RentalDetailsComponent implements OnInit {
           });
         });
       });
+    });
+  }
+
+  returnArticle(id: number) {
+    console.log(id);
+    let toReturn = {
+      "ids" : [
+        id
+      ]
+    }
+
+    this.articleQuantityService.return(toReturn).subscribe(response => {
+      console.log(response);
+      this.toastr.success(response.message, "Success!");
+    }, error => {
+      this.toastr.error("Error while returning the article", "Error!");
     });
   }
 

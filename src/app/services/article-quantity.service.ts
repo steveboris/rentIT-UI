@@ -27,4 +27,9 @@ export class ArticleQuantityService {
     
     return this.http.get<ArticleQuantity>(`${this.apiUrl}/${id}`, {headers: this.header});
   }
+
+  public return(ids: { ids: number[]; }): Observable<any> {
+    
+    return this.http.post<ArticleQuantity>(`${this.apiUrl}/return`,ids, {headers: this.header});
+  }
 }

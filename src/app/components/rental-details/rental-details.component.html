@@ -40,8 +40,7 @@
                                 <td class="text-left">{{ articleQuantity.returnedDate | date }}</td>
                                 <td class="text-left">{{ articleQuantity.rentalDate | date }}</td>
                                 <td class="text-center">
-                                    <mat-icon color="primary" (click)="openRentalDetails(rental.rentalId)">visibility</mat-icon>
-                                    <mat-icon color="warn">delete</mat-icon>
+                                    <button [disabled]="articleQuantity.returned" mat-raised-button color="primary" (click)="returnArticle(articleQuantity.articleQuantityId)"><mat-icon color="link" >keyboard_return</mat-icon></button>
                                 </td>
                             </tr>
                         </tbody>

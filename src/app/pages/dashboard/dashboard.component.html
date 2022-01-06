@@ -62,9 +62,9 @@
                             <td class="text-left">{{ rental.totalPrice }}</td>
                             <td class="text-left">{{ rental.invoiceEn?.invoiceNumber }}</td>
                             <td class="text-left">{{ rental.articleQuantity?.length }}</td>
-                            <td class="text-center">
-                                <mat-icon color="primary" (click)="openRentalDetails(rental.rentalId)">visibility</mat-icon>
-                                <mat-icon color="warn">delete</mat-icon>
+                            <td class="text-left">
+                                <button mat-raised-button color="primary" (click)="openRentalDetails(rental.rentalId)"><mat-icon color="link">visibility</mat-icon></button>
+                                <button disabled mat-raised-button color="link"><mat-icon color="warn">delete</mat-icon></button>
                             </td>
                         </tr>
                     </tbody>

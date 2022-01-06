@@ -17,6 +17,11 @@
     text-align: center;
 }
 
+.circles-titles .dot {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .text-user-top {
     margin-left: 40px;
 }
