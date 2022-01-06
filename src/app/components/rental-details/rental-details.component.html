@@ -35,7 +35,7 @@
                                 <td class="text-left">{{ articleQuantity.article.name }}</td>
                                 <td class="text-left">{{ articleQuantity.subTotal }}</td>
                                 <td class="text-left">{{ articleQuantity.quantity }}</td>
-                                <td class="text-left">{{ articleQuantity.returned }}</td>
+                                <td class="text-left"> <mat-icon color="warn" *ngIf="articleQuantity.returned">check</mat-icon> <mat-icon color="warn" *ngIf="!articleQuantity.returned">close</mat-icon> </td>
                                 <td class="text-left">{{ articleQuantity.returnDate | date }}</td>
                                 <td class="text-left">{{ articleQuantity.returnedDate | date }}</td>
                                 <td class="text-left">{{ articleQuantity.rentalDate | date }}</td>
