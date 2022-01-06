@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'categorie/:id', component: CategorieComponent },
   { path: 'articles/:id', component: ArticleComponent },
-  { path: 'dashboard/:id', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'dashboard/:id', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
