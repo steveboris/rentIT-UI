@@ -19,7 +19,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
@@ -27,6 +27,7 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RentalDetailsComponent } from './components/rental-details/rental-details.component';
+import { AuthInterceptor } from './config/authconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,12 @@ import { RentalDetailsComponent } from './components/rental-details/rental-detai
   ],
   providers: [
     NgbActiveModal,
-    NgbModal
+    NgbModal,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
