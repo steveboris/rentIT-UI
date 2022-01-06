@@ -4,10 +4,10 @@
             <h2 class="card-header">Rental Details</h2>
         </div>
         <div class="col-4"></div>
-        <div class="col-4"><button mat-raised-button  class="close-modal" color="warn" (click)="activeModal.close('Closed')">Close</button></div>  
+        <div class="col-4"><button mat-raised-button  class="close-modal" color="warn" (click)="activeModal.close('Closed') ; closeModal()">Close</button></div>  
     </div>
     <div class="card-body">
-        <h5 class="card-title">You ordered this Rental on &nbsp; {{actualRental.rentDate | date}} </h5>
+        <h5 class="card-title">You ordered this Rental on &nbsp; {{actualRental?.rentDate | date}} </h5>
         <p class="card-text">This Rental content following articles:</p>
 
         <div class="col">

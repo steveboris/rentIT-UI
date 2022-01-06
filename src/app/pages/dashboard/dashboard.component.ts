@@ -38,8 +38,7 @@ export class DashboardComponent implements OnInit {
       this.userId = param.id;
       this.userService.getOne(this.userId).subscribe((user_) => {
         this.user = user_;
-        console.log(user_);
-
+        this.rentals = [];
         this.user.rental.forEach((rentalId) => {
           this.rentalService.getOne(rentalId).subscribe((rental: Rental) => {
             this.invoiceService.getOne(rental.invoice).subscribe((invoice) => {
@@ -80,5 +79,11 @@ export class DashboardComponent implements OnInit {
     });
 
     modalRef.componentInstance.rentalId = id;
+
+    modalRef.result.then((data:any) => {
+      if(data.returned) {
+        this.ngOnInit();
+      }
+    });
   }
 }

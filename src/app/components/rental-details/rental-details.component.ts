@@ -33,15 +33,13 @@ export class RentalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.rentalService.getOne(this.rentalId).subscribe((rental: Rental) => {
       this.actualRental = rental;
-      console.log(rental);
-      console.log(rental.invoice);
       this.invoiceService.getOne(rental.invoice).subscribe(invoice => {
         this.invoice = invoice;
+        this.articleQuantities = [];
         rental.articleQuantity.forEach(quantity => {
           this.articleQuantityService.getOne(quantity).subscribe(articleQuantitie => {
-            console.log(articleQuantitie.article);
             this.articleService.getOne(articleQuantitie.article).subscribe(article_ => {
-              articleQuantitie.article = article_;
+              articleQuantitie.article = article_;              
               this.articleQuantities.push(articleQuantitie);
             });
           });
@@ -51,7 +49,6 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   returnArticle(id: number) {
-    console.log(id);
     let toReturn = {
       "ids" : [
         id
@@ -59,10 +56,16 @@ export class RentalDetailsComponent implements OnInit {
     }
 
     this.articleQuantityService.return(toReturn).subscribe(response => {
-      console.log(response);
       this.toastr.success(response.message, "Success!");
+      this.ngOnInit();
     }, error => {
       this.toastr.error("Error while returning the article", "Error!");
+    });
+  }
+
+  closeModal() {
+    this.activeModal.close({
+      returned: true
     });
   }
 
