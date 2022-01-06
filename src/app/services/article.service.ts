@@ -20,7 +20,7 @@ export class ArticleService {
   constructor(
     private http: HttpClient
   ) { 
-    this.apiUrl = environment.apiUrl + "/articles/"
+    this.apiUrl = environment.apiUrl + "/articles"
   }
 
   public getOne(id: number): Observable<any> {
