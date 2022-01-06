@@ -24,6 +24,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RentalDetailsComponent } from './components/rental-details/rental-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
     NavbarComponent,
     FooterComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    DashboardComponent,
+    RentalDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,10 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
     ToastrModule.forRoot(),
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    NgbActiveModal,
+    NgbModal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-9 text-user-top">
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">
+                        Welcome {{ user?.firstname }} {{ user?.lastname }} to your
+                        Dashboard. <br />
+                        <span class="text-muted">your username: {{ user?.username }}.</span>
+                    </h2>
+                    <p class="lead">
+                        Here you can see all your rented articles, you can retourn a artcle
+                        or rent more articles.
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="../../../assets/user.png"
+                        alt="Generic placeholder image" />
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-lg-2 circles-titles">
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 circles-titles">
+            <span class="dot">{{totals.returned}}</span>
+            <h2>Returned</h2>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 circles-titles">
+            <span class="dot">{{totals.articles}}</span>
+            <h2>Rented</h2>
+        </div>
+        <div class="col-lg-2 circles-titles">
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+    <br /><br />
+
+    <div class="col">
+        <div class="card shadow">
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Rent Date</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Invoice</th>
+                            <th scope="col">Articles</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let rental of rentals">
+                            <th scope="row">{{ rental.rentDate | date }}</th>
+                            <td class="text-left">{{ rental.totalPrice }}</td>
+                            <td class="text-left">{{ rental.invoiceEn?.invoiceNumber }}</td>
+                            <td class="text-left">{{ rental.articleQuantity?.length }}</td>
+                            <td class="text-center">
+                                <mat-icon color="primary" (click)="openRentalDetails(rental.rentalId)">visibility</mat-icon>
+                                <mat-icon color="warn">delete</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           <!--  <div class="card-footer py-4">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="fas fa-angle-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="fas fa-angle-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> -->
+        </div>
+    </div>
+</div>
