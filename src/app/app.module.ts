@@ -25,9 +25,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RentalDetailsComponent } from './components/rental-details/rental-details.component';
 import { AuthInterceptor } from './config/authconfig.interceptor';
+import { CategorieComponent } from './pages/categorie/categorie.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { AuthInterceptor } from './config/authconfig.interceptor';
     SignUpComponent,
     SignInComponent,
     DashboardComponent,
-    RentalDetailsComponent
+    RentalDetailsComponent,
+    CategorieComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,8 @@ import { AuthInterceptor } from './config/authconfig.interceptor';
     MatCardModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgbModule
   ],
   providers: [
     NgbActiveModal,
