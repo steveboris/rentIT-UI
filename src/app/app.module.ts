@@ -30,6 +30,7 @@ import { RentalDetailsComponent } from './components/rental-details/rental-detai
 import { AuthInterceptor } from './config/authconfig.interceptor';
 import { CategorieComponent } from './pages/categorie/categorie.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CategoriesComponent } from './pages/categories/categories.component';
     DashboardComponent,
     RentalDetailsComponent,
     CategorieComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

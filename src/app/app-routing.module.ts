@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './config/auth.guard';
+import { ArticleComponent } from './pages/article/article.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { CategorieComponent } from './pages/categorie/categorie.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'categorie/:id', component: CategorieComponent },
+  { path: 'articles/:id', component: ArticleComponent },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
