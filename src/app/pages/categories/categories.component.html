@@ -1,1 +1,13 @@
-<p>categories works!</p>
+<div class="container">
+    <div class="row cat-row">
+        <div class="card box-categories" *ngFor="let categorie of categories">
+            <img src="../../../assets/lg-32ud99-4k-monitor-main1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title">{{categorie?.name}}</h2>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a [routerLink]="['/categorie/', categorie?.categoryId]"  class="btn btn-primary">see Articles</a>
+            </div>
+        </div>        
+    </div>
+</div>

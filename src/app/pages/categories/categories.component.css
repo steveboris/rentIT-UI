@@ -1,0 +1,16 @@
+.box-categories {
+    width: 20rem;
+    margin-top: 60px;
+    text-decoration: none;
+    margin-right: 5rem;
+}
+
+.box-categories img {
+    width: 20rem;
+    height: 13rem;
+    margin-left: -12px;
+}
+
+.cat-row {
+    margin-left: 60px;
+}

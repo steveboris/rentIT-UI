@@ -32,4 +32,9 @@ export class ArticleQuantityService {
     
     return this.http.post<ArticleQuantity>(`${this.apiUrl}/return`,ids, {headers: this.header});
   }
+
+  public addOne(quantity: any): Observable<any> {
+    
+    return this.http.post<any>(`${this.apiUrl}`,quantity, {headers: this.header});
+  }
 }
