@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'categorie/:id', component: CategorieComponent },
   { path: 'categorie/:id/articles/:id', component: ArticleComponent },
+  { path: 'articles/:id', component: ArticleComponent },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'home' }
 ];
