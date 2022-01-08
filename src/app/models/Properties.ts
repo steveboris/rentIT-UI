@@ -9,6 +9,6 @@ export class Properties {
     public operatingSystem: string;
     public color: string;
     public specialFeature: string;
-    public manifacturer: number;
+    public manifacturer: string;
     public article: Article;
 }

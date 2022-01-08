@@ -1,1 +1,99 @@
-<p>article works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <h1> {{actualArticle?.name}} {{actualArticle?.model}} </h1>
+        </div>
+        <div class="col-4"> </div>
+    </div>
+    <div class="row">
+        <h2 class="text-left">{{actualArticle?.properties?.manifacturer}}</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <img class="img-article" [src]="actualArticle?.images[0].imageLink" alt="">
+        </div>
+        
+        <div class="col-6">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4"></div>
+                <div class="col-6">
+                    <h1  class="art-price text-right">{{actualArticle?.price}} &#x20AC;</h1>
+                    <span>inkl. MwSt. versandkostenfrei</span>
+                </div>
+                <hr class="hr-bottom-product ">
+                <h3 class=" text-center mt-5">Serial Number: <span class="properties">{{actualArticle?.serialNumber}}</span></h3>
+                <h3 class=" text-center">Color: <span class="properties">{{actualArticle?.properties?.color}}</span></h3>
+                <h3 class=" text-center">Manifacturer: <span class="properties">{{actualArticle?.properties?.manifacturer}}</span></h3>
+                <h3 class=" text-center">Operating System: <span class="properties">{{actualArticle?.properties?.operatingSystem}}</span></h3>
+                <h3 class=" text-center">Special Feature: <span class="properties">{{actualArticle?.properties?.specialFeature}}</span></h3>
+                <h3 class=" text-center">Storage: <span class="properties">{{actualArticle?.properties?.storage}}</span></h3>
+
+                <br><br>
+
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-10">
+                        <form class="example-form" [formGroup]="form">
+                            <mat-form-field *ngIf="rentForm" class="example-full-width" appearance="fill">
+                                <mat-label>quantity</mat-label>
+                                <input matInput type="number" formControlName="quantity" placeholder="quantity">
+                                <mat-error *ngIf="(form.get('quantity')).errors?.required">Quantity is required</mat-error>
+                            </mat-form-field>
+                            <mat-form-field *ngIf="rentForm" class="example-full-width" appearance="fill">
+                                <input matInput [matDatepicker]="picker" formControlName="returnDate" placeholder="choose date dd/mm/yyyy">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                <mat-error *ngIf="(form.get('returnDate')).errors?.required">returnDate is required</mat-error>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                            <defs>
+                                <filter id="gooey">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                                    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                                    <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    
+                        <button class="rent-it-boutton" id="gooey-button" (click)="rentArticle(actualArticle?.articleId) ; clickButton(actualArticle?.articleId)">
+                            Rent this article !
+                            <span class="bubbles">
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                                <span class="bubble"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

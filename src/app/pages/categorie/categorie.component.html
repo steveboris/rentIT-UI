@@ -1,1 +1,15 @@
-<p>categorie works!</p>
+<div class="container">
+    <div class="row cat-row">        
+        <div  class="card box-categories" *ngFor="let article of articles">
+            <a [routerLink]="['articles/', article?.articleId]"  >
+                <img [src]="article?.images[0]?.imageLink" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2 class="card-title">{{article?.name}}</h2>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <button class="btn btn-outline-primary">{{article?.price}} &#x20AC;</button>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
