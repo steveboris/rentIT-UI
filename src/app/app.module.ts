@@ -31,6 +31,7 @@ import { AuthInterceptor } from './config/authconfig.interceptor';
 import { CategorieComponent } from './pages/categorie/categorie.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { CardComponent } from './pages/card/card.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ArticleComponent } from './pages/article/article.component';
     RentalDetailsComponent,
     CategorieComponent,
     CategoriesComponent,
-    ArticleComponent
+    ArticleComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

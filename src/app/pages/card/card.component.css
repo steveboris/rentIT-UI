@@ -1,0 +1,34 @@
+.card {
+    max-width: 940px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+img {
+    width: 170px;
+    height: 160px;
+}
+
+.mat-form-field {
+    margin-left: 2px;
+    width: 9rem;
+}
+
+.remove-product {
+    margin-left: 17px;
+}
+
+.total-amount * {
+    font-weight: bold;
+}
+
+.btn-lg {
+    width: 16rem;
+    font-weight: bold;
+}
+
+.see-all a {
+    text-decoration: none;
+}

@@ -15,4 +15,6 @@ export class Article {
     public category: Category;
     public images: Image[];
     public articleQuantity: ArticleQuantity[];
+    public quantity?: number;
+    public totalPrice?: any;
 }

@@ -37,15 +37,17 @@
                     <div class="col-10">
                         <form class="example-form" [formGroup]="form">
                             <mat-form-field *ngIf="rentForm" class="example-full-width" appearance="fill">
-                                <mat-label>quantity</mat-label>
+                                <mat-label>quantity:</mat-label>
                                 <input matInput type="number" formControlName="quantity" placeholder="quantity">
                                 <mat-error *ngIf="(form.get('quantity')).errors?.required">Quantity is required</mat-error>
                             </mat-form-field>
                             <mat-form-field *ngIf="rentForm" class="example-full-width" appearance="fill">
-                                <input matInput [matDatepicker]="picker" formControlName="returnDate" placeholder="choose date dd/mm/yyyy">
+                                <mat-label>return date:</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="returnDate" placeholder="dd/mm/yyyy">
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
                                 <mat-error *ngIf="(form.get('returnDate')).errors?.required">returnDate is required</mat-error>
+                                <mat-hint align="end">format dd/mm/yyyy</mat-hint>
                             </mat-form-field>
                         </form>
                     </div>
@@ -65,7 +67,7 @@
                             </defs>
                         </svg>
                     
-                        <button class="rent-it-boutton" id="gooey-button" (click)="rentArticle(actualArticle?.articleId) ; clickButton(actualArticle?.articleId)">
+                        <button class="rent-it-boutton" id="gooey-button" [disabled]="!this.form.valid" (click)="rentArticle(actualArticle?.articleId) ; clickButton(actualArticle?.articleId)">
                             Rent this article !
                             <span class="bubbles">
                                 <span class="bubble"></span>

@@ -1,15 +1,24 @@
 <div class="container">
     <div class="row cat-row">        
         <div  class="card box-categories" *ngFor="let article of articles">
-            <a [routerLink]="['articles/', article?.articleId]"  >
-                <img [src]="article?.images[0]?.imageLink" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h2 class="card-title">{{article?.name}}</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+            <div class="row">
+                <a [routerLink]="['articles/', article?.articleId]"  >
+                    <img [src]="article?.images[0]?.imageLink" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title">{{article?.name}}</h2>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="row text-center">
+                <div class="col-6">
                     <button class="btn btn-outline-primary">{{article?.price}} &#x20AC;</button>
                 </div>
-            </a>
+                <div class="col-6">
+                    <button class="btn btn-outline-primary add-card" (click)="addToCard(article)"> <mat-icon>add_shopping_cart</mat-icon></button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
