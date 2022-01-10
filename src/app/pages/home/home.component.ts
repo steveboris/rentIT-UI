@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from 'src/app/card.service';
 import { Article } from 'src/app/models/Article';
 import { Category } from 'src/app/models/Category';
 import { ArticleService } from 'src/app/services/article.service';
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private categorieService: CategorieService,
     private articleService: ArticleService,
+    private cardService: CardService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,8 @@ export class HomeComponent implements OnInit {
       this.articles = articles;
     });
   }
-
+  addToCard(article: any) {
+    this.cardService.addItem(article);
+  }
 
 }

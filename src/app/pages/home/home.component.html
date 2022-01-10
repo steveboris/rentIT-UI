@@ -129,7 +129,8 @@
                     <h2 class="card-title">{{categories[0]?.name}}</h2>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
-                    <a [routerLink]="['/categorie/', categories[0]?.categoryId]"  class="btn btn-primary">see Articles</a>
+                    <a [routerLink]="['/categorie/', categories[0]?.categoryId]" class="btn btn-primary">see
+                        Articles</a>
                 </div>
             </div>
         </div>
@@ -140,7 +141,8 @@
                     <h2 class="card-title">{{categories[1]?.name}}</h2>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
-                    <a [routerLink]="['/categorie/', categories[1]?.categoryId]" class="btn btn-primary">see Articles</a>
+                    <a [routerLink]="['/categorie/', categories[1]?.categoryId]" class="btn btn-primary">see
+                        Articles</a>
                 </div>
             </div>
         </div>
@@ -151,7 +153,8 @@
                     <h2 class="card-title">{{categories[2]?.name}}</h2>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
-                    <a [routerLink]="['/categorie/', categories[2]?.categoryId]" class="btn btn-primary">see Articles</a>
+                    <a [routerLink]="['/categorie/', categories[2]?.categoryId]" class="btn btn-primary">see
+                        Articles</a>
                 </div>
             </div>
         </div>
@@ -164,43 +167,76 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <a [routerLink]="['/articles/', articles[0]?.articleId]" class="box-articles">
-                <div class="card box-categories">
-                    <img [src]="articles[0]?.images[0]?.imageLink" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{articles[0]?.name}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+            <div class="card box-categories">
+                <div class="row">
+                    <a [routerLink]="['/articles/', articles[0]?.articleId]" class="box-articles">
+                        <img [src]="articles[0]?.images[0]?.imageLink" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{articles[0]?.name}}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="row text-center">
+                    <div class="col-6">
                         <button class="btn btn-outline-primary">{{articles[0]?.price}} &#x20AC;</button>
                     </div>
+                    <div class="col-6">
+                        <button class="btn btn-outline-primary add-card" (click)="addToCard(articles[0])"><mat-icon>add_shopping_cart
+                            </mat-icon></button>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
         <div class="col-4">
-            <a [routerLink]="['/articles/', articles[1]?.articleId]" class="box-articles">
-                <div class="card box-categories">
-                    <img [src]="articles[1]?.images[0]?.imageLink" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{articles[1]?.name}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+            <div class="card box-categories">
+                <div class="row">
+                    <a [routerLink]="['/articles/', articles[1]?.articleId]" class="box-articles">
+                        <img [src]="articles[1]?.images[0]?.imageLink" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{articles[1]?.name}}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="row text-center">
+                    <div class="col-6">
                         <button class="btn btn-outline-primary">{{articles[1]?.price}} &#x20AC;</button>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-4">
-            <a [routerLink]="['/articles/', articles[2]?.articleId]" class="box-articles">
-                <div class="card box-categories">
-                    <img [src]="articles[2]?.images[0]?.imageLink" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{articles[2]?.name}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <button class="btn btn-outline-primary">{{articles[2]?.price}} &#x20AC;</button>
+                    <div class="col-6">
+                        <button class="btn btn-outline-primary add-card" (click)="addToCard(articles[1])"><mat-icon>add_shopping_cart
+                            </mat-icon></button>
                     </div>
                 </div>
-            </a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card box-categories">
+                <div class="row">
+                    <a [routerLink]="['/articles/', articles[2]?.articleId]" class="box-articles">
+                        <img [src]="articles[2]?.images[0]?.imageLink" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{articles[2]?.name}}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the
+                                card's content.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <button class="btn btn-outline-primary">{{articles[2]?.price}} &#x20AC;</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-outline-primary add-card" (click)="addToCard(articles[2])"><mat-icon>add_shopping_cart
+                            </mat-icon></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
