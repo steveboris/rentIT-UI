@@ -33,6 +33,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { CardComponent } from './pages/card/card.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
