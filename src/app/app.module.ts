@@ -32,6 +32,7 @@ import { CategorieComponent } from './pages/categorie/categorie.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { ArticleComponent } from './pages/article/article.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
