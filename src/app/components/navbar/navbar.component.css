@@ -1,11 +1,10 @@
 h5 {
     display: block;
-    padding: 2px;
+    padding: 0px;
     margin: 0;
     position: fixed;
-    width: 99.9%;
+    width: 100vw;
     font-size: 20px;
     color: white;
-
-
+    z-index: 1000;
 }
