@@ -11,8 +11,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-
-                                <form class="example-form" [formGroup]="form">
+                                <form [formGroup]="form">
                                     <div formArrayName="propArray"
                                         *ngFor="let item of form.get('propArray').controls;  let i = index">
                                         <div [formGroupName]="i">
