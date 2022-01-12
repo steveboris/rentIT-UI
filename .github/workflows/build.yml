@@ -26,7 +26,7 @@ jobs:
          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
     - name: npm install dependencies
-      run: npm install -f
+      run: npm install
 
     #- name: Run unit tests
       #run: npm run test
