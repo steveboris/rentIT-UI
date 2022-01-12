@@ -25,6 +25,12 @@ jobs:
       with:
          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
+    - name: Remove node_modules
+      run: rm -r node_modules
+    
+    - name: Remove package-lock.json
+      run: rm package-lock.json
+
     - name: npm install dependencies
       run: npm install
 
