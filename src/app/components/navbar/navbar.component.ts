@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from 'src/app/card.service';
 
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
   username: string;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private cardService: CardService
   ) {
     this.isLoggedIn = false;
     this.username = '';
@@ -33,5 +35,6 @@ export class NavbarComponent implements OnInit {
 
   Signout() {
     this.authService.doLogout();
+    this.cardService.removeAll();
   }
 }

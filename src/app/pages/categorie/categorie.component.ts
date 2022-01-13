@@ -26,7 +26,6 @@ export class CategorieComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((param) => {
-      console.log(param);
       this.categorieService.getOne(param.id).subscribe(categorie => {
         this.articles = [];
         categorie.articles.forEach(article => {
@@ -40,8 +39,7 @@ export class CategorieComponent implements OnInit {
 
   addToCard(article: any) {
     this.cardService.addItem(article);
-    // reload to increase the value of the badge
-    location.reload();
+    this.toastrService.success("add to card", "Success");
   }
 
 }

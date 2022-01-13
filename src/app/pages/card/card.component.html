@@ -5,7 +5,7 @@
       <hr />
       <h5 class="text-info mb-3">{{totalProduct}} {{totalProduct > 1 ? 'Products':'Product'}}</h5>
       <div class="col-9">
-        <div class="card mb-3" *ngFor="let cardProdukt of cardProdukts">
+        <div class="card mb-3" *ngFor="let cardProdukt of cardProdukts; let j = index">
           <div class="row g-0">
             <div class="col-md-4">
               <img [src]="cardProdukt?.images[0].imageLink" class="img-fluid rounded-start" alt="...">
@@ -14,7 +14,7 @@
               <div class="card-body">
                 <form [formGroup]="form">
                   <div formArrayName="propArray" *ngFor="let item of form.get('propArray').controls;  let i = index">
-                    <div [formGroupName]="i">
+                    <div [formGroupName]="i" *ngIf="i==j">
                       <h4 class="card-title">{{cardProdukt?.name}}</h4>
                       <h4 class="card-title">{{cardProdukt?.price}} &#x20AC; x
                         {{cardProdukt?.quantity ? cardProdukt?.quantity:1}} =
@@ -39,7 +39,7 @@
                           is required</mat-error>
                         <mat-hint align="end">format dd/mm/yyyy</mat-hint>
                       </mat-form-field>
-                      <button class="d-inline remove-product text-danger" mat-raised-button>
+                      <button class="d-inline remove-product text-danger" (click)="removeCardProduct(cardProdukt.articleId)" mat-raised-button>
                         <mat-icon>delete_forever</mat-icon>
                       </button>
                     </div>

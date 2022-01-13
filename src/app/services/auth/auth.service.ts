@@ -40,7 +40,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('token');
     if (removeToken == null) {
-      this.route.navigate(['signin']);
+      this.route.navigate(['']);
       location.reload();
     }
   }
