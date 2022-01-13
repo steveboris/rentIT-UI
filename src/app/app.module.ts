@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -66,6 +67,7 @@ import { CardComponent } from './pages/card/card.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatBadgeModule,
     HttpClientModule,
     ToastrModule.forRoot(),
     MatProgressSpinnerModule,
