@@ -22,44 +22,50 @@ export class SignInComponent implements OnInit {
     private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+    this.checkUserAuthState();
     this.form = this.fb.group({
       email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ["", [Validators.required, Validators.minLength(6)]]
     });
   }
 
+  private checkUserAuthState() {
+    if(this.authService.isLoggedIn) {
+      this.router.navigate(['home']);
+    }
+  }
+
   saveDetails(form) {
-    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(form.value, null, 4));
 
     this.loading = true;
 
-    console.log(JSON.stringify(form.value, null, 4))
-
-    this.request = {    
-      email: this.form.get("email").value,      
-      password: this.form.get("password").value,      
+    this.request = {
+      email: this.form.get("email").value,
+      password: this.form.get("password").value,
     }
 
-    this.authService.signIn(this.request).subscribe(response => {
-      this.loading = false;
-      console.log(response);
-      this.toastr.success("Successfully logged in!", "Success");
+    this.authService.signIn(this.request).subscribe({
+      next: (response) => {
+        this.loading = false;
+        this.toastr.success("Successfully logged in!", "Success");
 
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("token_type", response.type);
-      localStorage.setItem("roles", response.roles);
-      localStorage.setItem("rental", JSON.stringify(response.rental));
-      localStorage.setItem("email", response.email);
-      localStorage.setItem("lastname", response.lastname);
-      localStorage.setItem("firstname", response.firstname);
-      localStorage.setItem("id", response.id);
-
-      this.router.navigate(["/dashboard", response.id]);
-    }, error => {
-      this.toastr.error(error.error.message, "Error");
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("token_type", response.type);
+        localStorage.setItem("roles", response.roles);
+        localStorage.setItem("rental", JSON.stringify(response.rental));
+        localStorage.setItem("email", response.email);
+        localStorage.setItem("lastname", response.lastname);
+        localStorage.setItem("firstname", response.firstname);
+        localStorage.setItem("id", response.id);
+      },
+      error: (error) => {
+        const msg = error.status === 403 ? 'Username and/or Password is incorrect.' : error.error.message;
+        this.toastr.error(msg, "Error");
+      },
+      complete: () => location.href = '/dashboard'
     });
   }
 

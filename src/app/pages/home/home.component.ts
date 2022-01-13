@@ -23,12 +23,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.categorieService.getAll().subscribe(categories => {
-      console.log(categories);
       this.categories = categories;
     });
 
     this.articleService.getAll().subscribe(articles => {
-      console.log(articles);
       this.articles = articles;
     });
   }

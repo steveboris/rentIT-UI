@@ -25,6 +25,8 @@ export class SignUpComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.checkUserAuthState();
+
     this.form = this.fb.group({
       email: ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ["", [Validators.required, Validators.minLength(6)]],
@@ -37,18 +39,24 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  private checkUserAuthState() {
+    if(this.authService.isLoggedIn) {
+      this.router.navigate(['home']);
+    }
+  }
+
   saveDetails(form) {
     this.loading = true;
     console.log(JSON.stringify(form.value, null, 4))
     this.request = {
-      firstname: this.form.get("firstName").value,      
-      lastname: this.form.get("lastName").value,      
-      street: this.form.get("street").value,      
-      houseNumber: this.form.get("houseNumber").value,      
-      city: this.form.get("city").value,   
-      plz: this.form.get("postalCode").value,   
-      email: this.form.get("email").value,      
-      password: this.form.get("password").value,      
+      firstname: this.form.get("firstName").value,
+      lastname: this.form.get("lastName").value,
+      street: this.form.get("street").value,
+      houseNumber: this.form.get("houseNumber").value,
+      city: this.form.get("city").value,
+      plz: this.form.get("postalCode").value,
+      email: this.form.get("email").value,
+      password: this.form.get("password").value,
     }
     this.authService.signUp(this.request).subscribe(response => {
       this.loading = false;

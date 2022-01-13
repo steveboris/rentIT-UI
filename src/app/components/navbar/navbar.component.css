@@ -1,3 +1,14 @@
 nav {
     background-color: rgba(63, 63, 243, 0.849);
 }
+
+.navbar-nav .dropdown-menu {
+    left: -6em !important;
+}
+
+.aligned-with-icon{
+    position: relative;
+    margin-top: 0px;
+    margin-left: 5px;
+    width: auto;
+}
