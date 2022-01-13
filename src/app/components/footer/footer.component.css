@@ -1,3 +1,7 @@
 svg {
     margin-right: 10%;
 }
+
+svg:hover {
+  cursor: pointer;
+}
