@@ -39,7 +39,7 @@ export class CategorieComponent implements OnInit {
 
   addToCard(article: any) {
     this.cardService.addItem(article);
-    this.toastrService.success("add to card", "Success");
+    this.toastrService.success("added to card", "Success");
   }
 
 }
