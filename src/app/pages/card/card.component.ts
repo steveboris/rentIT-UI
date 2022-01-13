@@ -72,9 +72,9 @@ export class CardComponent implements OnInit {
   getTotalPrice(): number {
     let sum : any = 0;
     this.cardProdukts.forEach(produkt => {
-      console.log(produkt.totalPrice ? produkt.totalPrice : 0);
+      console.log(produkt?.totalPrice ? produkt?.totalPrice : 0);
 
-      sum += produkt.totalPrice ? produkt.totalPrice : 0 ;
+      sum += produkt?.totalPrice ? produkt?.totalPrice : 0 ;
       this.totalPrice_ = sum;
     });
     return sum;
@@ -130,5 +130,10 @@ export class CardComponent implements OnInit {
       arr.push(this.createItem());
     }
     return arr;
+  }
+
+  removeCardProduct(id: number) {
+    this.cardService.removeData(id);
+    this.ngOnInit();
   }
 }
