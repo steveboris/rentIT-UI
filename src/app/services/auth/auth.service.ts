@@ -16,17 +16,15 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private route: Router
-  ) { 
+  ) {
     this.apiUrl = environment.apiUrl + "/auth"
   }
 
   public signUp(request: SignupRequest): Observable<any> {
-    
     return this.http.post<any>(`${this.apiUrl}/signup`, request);
   }
 
   public signIn(request: SigninRequest): Observable<any> {
-    
     return this.http.post<any>(`${this.apiUrl}/signin`, request);
   }
 
@@ -43,6 +41,7 @@ export class AuthService {
     let removeToken = localStorage.removeItem('token');
     if (removeToken == null) {
       this.route.navigate(['signin']);
+      location.reload();
     }
   }
 }

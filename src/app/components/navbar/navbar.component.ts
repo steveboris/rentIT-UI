@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -13,9 +14,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService
-  ) { 
+  ) {
     this.isLoggedIn = false;
-    this.username = "User";
+    this.username = '';
   }
 
   ngOnInit(): void {
@@ -24,6 +25,10 @@ export class NavbarComponent implements OnInit {
 
   private checkUserAuthState() {
     this.isLoggedIn = this.authService.isLoggedIn;
+    // read also the current connected user
+    if(this.isLoggedIn) {
+      this.username = localStorage.getItem('email');
+    }
   }
 
   Signout() {
