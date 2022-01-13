@@ -1,93 +1,89 @@
 <div class="container">
-    <h1>Your Card</h1>
-    <hr/>
-    <h5 class="text-muted">{{totalProduct}} Produkt</h5>
-    <div *ngIf="!noProducts" class="d-flex mt-5 justify-content-center">
-        <div class="row">
-            <div class="col-9">
-                <div class="card mb-3" *ngFor="let cardProdukt of cardProdukts">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img [src]="cardProdukt?.images[0].imageLink" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <form [formGroup]="form">
-                                    <div formArrayName="propArray"
-                                        *ngFor="let item of form.get('propArray').controls;  let i = index">
-                                        <div [formGroupName]="i">
-                                            <h4 class="card-title">{{cardProdukt?.name}}</h4>
-                                            <h4 class="card-title">{{cardProdukt?.price}} &#x20AC; x
-                                                {{cardProdukt?.quantity ? cardProdukt?.quantity:1}} =
-                                                {{cardProdukt?.totalPrice}} &#x20AC;</h4>
-                                            <p class="card-text"></p>
-                                            <mat-form-field class="d-inline" class="example-full-width"
-                                                appearance="fill">
-                                                <mat-label>quantity</mat-label>
-                                                <input matInput type="number" id="qty" min="1" required
-                                                    formControlName="quantity" placeholder="quantity"
-                                                    (change)="onChangeEvent($event, cardProdukt)">
-                                                <mat-error *ngIf="(item.get('quantity')).errors?.required">Quantity is
-                                                    required</mat-error>
-                                            </mat-form-field>
+  <div *ngIf="!noProducts" class="d-flex mt-5 justify-content-center">
+    <div class="row">
+      <h1>Your Card</h1>
+      <hr />
+      <h5 class="text-info mb-3">{{totalProduct}} {{totalProduct > 1 ? 'Products':'Product'}}</h5>
+      <div class="col-9">
+        <div class="card mb-3" *ngFor="let cardProdukt of cardProdukts">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img [src]="cardProdukt?.images[0].imageLink" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <form [formGroup]="form">
+                  <div formArrayName="propArray" *ngFor="let item of form.get('propArray').controls;  let i = index">
+                    <div [formGroupName]="i">
+                      <h4 class="card-title">{{cardProdukt?.name}}</h4>
+                      <h4 class="card-title">{{cardProdukt?.price}} &#x20AC; x
+                        {{cardProdukt?.quantity ? cardProdukt?.quantity:1}} =
+                        {{cardProdukt?.totalPrice}} &#x20AC;</h4>
+                      <p class="card-text"></p>
+                      <mat-form-field class="d-inline" class="example-full-width" appearance="fill">
+                        <mat-label>quantity</mat-label>
+                        <input matInput type="number" id="qty" min="1" required formControlName="quantity"
+                          placeholder="quantity" (change)="onChangeEvent($event, cardProdukt)">
+                        <mat-error *ngIf="(item.get('quantity')).errors?.required">Quantity is
+                          required</mat-error>
+                      </mat-form-field>
 
-                                            <mat-form-field class="d-inline" class="example-full-width"
-                                                appearance="fill">
-                                                <mat-label>return date</mat-label>
-                                                <input matInput [matDatepicker]="picker" required
-                                                    formControlName="returnDate" placeholder="dd/mm/yyyy">
-                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                <mat-datepicker #picker startView="year" [startAt]="startDate">
-                                                </mat-datepicker>
-                                                <mat-error *ngIf="(item.get('returnDate')).errors?.required">returnDate
-                                                    is required</mat-error>
-                                                <mat-hint align="end">format dd/mm/yyyy</mat-hint>
-                                            </mat-form-field>
-                                            <button class="d-inline remove-product text-danger" mat-raised-button>
-                                                <mat-icon>delete_forever</mat-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                      <mat-form-field class="d-inline" class="example-full-width" appearance="fill">
+                        <mat-label>return date</mat-label>
+                        <input matInput [matDatepicker]="picker" required formControlName="returnDate"
+                          placeholder="dd/mm/yyyy">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate">
+                        </mat-datepicker>
+                        <mat-error *ngIf="(item.get('returnDate')).errors?.required">returnDate
+                          is required</mat-error>
+                        <mat-hint align="end">format dd/mm/yyyy</mat-hint>
+                      </mat-form-field>
+                      <button class="d-inline remove-product text-danger" mat-raised-button>
+                        <mat-icon>delete_forever</mat-icon>
+                      </button>
                     </div>
-                </div>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <h3>Summary</h3>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row total-amount">
-                                <div class="col-6">
-                                    <h3>Total amount</h3>
-                                    <span class="text-muted">inkl. MwSt.</span>
-                                </div>
-                                <div class="col-6">
-                                    <h4> {{getTotalPrice()}} &#x20AC;</h4>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <button type="button" class="btn btn-success btn-lg" (click)="rentArticles()">Rent
-                                articles</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-    <div *ngIf="noProducts" class="d-flex mt-5 justify-content-center">
-        <div class="card">
-            <div class="card-body">
-                <h1>Your card is currently empty!!</h1>
-                <div class="row text-center mt-3 see-all">
-                    <h2><a [routerLink]="['/categories']">See all categories &#8649;</a></h2>
+      </div>
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h3>Summary</h3>
+            </li>
+            <li class="list-group-item">
+              <div class="row total-amount">
+                <div class="col-6">
+                  <h3>Total amount</h3>
+                  <span class="text-muted">inkl. MwSt.</span>
                 </div>
-            </div>
+                <div class="col-6">
+                  <h4> {{getTotalPrice()}} &#x20AC;</h4>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <button type="button" class="btn btn-success btn-lg" (click)="rentArticles()">Rent
+                articles</button>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
+  <div *ngIf="noProducts" class="d-flex mt-5 justify-content-center">
+    <div class="card">
+      <div class="card-body">
+        <h1>Your card is currently empty!!</h1>
+        <div class="row text-center mt-3 see-all">
+          <h2><a [routerLink]="['/categories']">See all categories &#8649;</a></h2>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
