@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CardService } from 'src/app/card.service';
 import { Article } from 'src/app/models/Article';
 import { Category } from 'src/app/models/Category';
@@ -19,11 +20,11 @@ export class CategorieComponent implements OnInit {
     private categorieService: CategorieService,
     private articleService: ArticleService,
     private activeRoute: ActivatedRoute,
-    private cardService: CardService
+    private cardService: CardService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
-
     this.activeRoute.params.subscribe((param) => {
       console.log(param);
       this.categorieService.getOne(param.id).subscribe(categorie => {
@@ -39,6 +40,8 @@ export class CategorieComponent implements OnInit {
 
   addToCard(article: any) {
     this.cardService.addItem(article);
+    // reload to increase the value of the badge
+    location.reload();
   }
 
 }

@@ -8,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   actualUserId: any;
+  totalitem: number;
 
-  constructor() { }
+  constructor() {
+    this.totalitem = 0;
+  }
 
   ngOnInit(): void {
-
     this.actualUserId = localStorage.getItem('id');
+    this.countTotalCardItem();
+  }
 
+  countTotalCardItem() {
+    const items: Array<any> = JSON.parse(localStorage.getItem('cart'));
+    this.totalitem = items.length;
   }
 
 }
