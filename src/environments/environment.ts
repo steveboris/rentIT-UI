@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  prod: false,
+  env: 'Dev',
+  appName: 'Rentit-UI',
+  version: '0.0.1',
   apiUrl: "http://localhost:8000/api"
 };
 

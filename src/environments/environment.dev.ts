@@ -1,5 +1,5 @@
 export const environment = {
-  prod: true,
+  prod: false,
   env: 'Dev',
   appName: 'Rentit-UI',
   version: '0.0.1',
