@@ -33,6 +33,7 @@ import { CategorieComponent } from './pages/categorie/categorie.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { CardComponent } from './pages/card/card.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { CardComponent } from './pages/card/card.component';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
