@@ -65,7 +65,7 @@ export class SignInComponent implements OnInit {
         const msg = error.status === 403 ? 'Username and/or Password is incorrect.' : error.error.message;
         this.toastr.error(msg, "Error");
       },
-      complete: () => location.href = '/dashboard/'+localStorage.getItem('id')
+      complete: () => this.router.navigate(["/dashboard", localStorage.getItem('id')])
     });
   }
 
