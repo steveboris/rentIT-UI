@@ -9,7 +9,7 @@ deploy dev:
     - REMOTE_FOLDER="/var/www/html/$ENVIRONMENT/$APPLICATION"
     - REMOTE_SERVICE_OWNER="gitlab-runner"
     - echo $GITLAB_RUNNER_PASSWORD | chown -R $REMOTE_SERVICE_OWNER:$REMOTE_SERVICE_OWNER .
-    - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./package-lock.json
+    #- echo $GITLAB_RUNNER_PASSWORD | rm -rf ./package-lock.json
     - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./node_modules
     - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./dist
     - echo $GITLAB_RUNNER_PASSWORD | npm install
@@ -28,7 +28,7 @@ deploy prod:
     - REMOTE_FOLDER="/var/www/html/$ENVIRONMENT/$APPLICATION"
     - REMOTE_SERVICE_OWNER="gitlab-runner"
     - echo $GITLAB_RUNNER_PASSWORD | chown -R $REMOTE_SERVICE_OWNER:$REMOTE_SERVICE_OWNER .
-    - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./package-lock.json
+    #- echo $GITLAB_RUNNER_PASSWORD | rm -rf ./package-lock.json
     - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./node_modules
     - echo $GITLAB_RUNNER_PASSWORD | rm -rf ./dist
     - echo $GITLAB_RUNNER_PASSWORD | npm install
