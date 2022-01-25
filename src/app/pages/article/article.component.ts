@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CardService } from 'src/app/card.service';
 import { Article } from 'src/app/models/Article';
 import { ArticleQuantityService } from 'src/app/services/article-quantity.service';
 import { ArticleService } from 'src/app/services/article.service';
@@ -27,7 +28,8 @@ export class ArticleComponent implements OnInit {
     private articleQuantityService: ArticleQuantityService,
     private authService: AuthService,
     private router: Router,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private cardService: CardService
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,10 @@ export class ArticleComponent implements OnInit {
 
   openForm() {
     this.rentForm = true;
+  }
+
+  addToCard(article: any) {
+    this.cardService.addItem(article);
   }
 
   clickButton(actualArticleId : number) {
